@@ -1,0 +1,77 @@
+﻿version 2.05
+platform CM-530
+o main
+o begin
+o // param_text:Initialize the robot prior to accepting commands.
+o load param_dest:motion:24 param_src:dec_num:1
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+- 
+o // param_text:Run until the robot is shut off.
+o while(1)
+o begin
+o // param_text:Only execute when the robot has recieved a command.
+o if param_src:cm:30 lop:== param_src:bool_num:1 rop:then
+o begin
+o load param_dest:var:rx_cmd param_src:cm:28
+- 
+o // param_text:Movement controls
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:1 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:7
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o load param_dest:motion:24 param_src:dec_num:8
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:2 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:17
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o load param_dest:motion:24 param_src:dec_num:18
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:4 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:28
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:8 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:27
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+- 
+o // param_text:Shuffle left/right
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:36 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:20
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:40 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:19
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+- 
+o // param_text:Look down and up
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:64 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:59
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:16 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:60
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+- 
+o // param_text:Kick ball
+o if param_src:var:rx_cmd lop:== param_src:rc100z_num:128 rop:then
+o begin
+o load param_dest:motion:24 param_src:dec_num:36
+o wait param_src:motion:25 lop:== param_src:bool_num:1 rop:then
+o end
+- 
+o end
+o end
+o end
+q_
